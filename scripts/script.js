@@ -1,6 +1,6 @@
 //Enable "Add App" button for Alt1 Browser.
 A1lib.identifyApp("appconfig.json");
-
+console.log("hello world");
 window.setTimeout(function () {
 
   const appColor = A1lib.mixColor(0, 255, 255);
