@@ -75,7 +75,7 @@ window.setTimeout(function () {
     }
 
     if (chat.indexOf("Your legendary pet finds") > -1) {
-      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] The Seren spirit gifts you : (\d+ x [A-Za-z\s-'()1-4]+)/);
+      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] Your legendary pet finds: (\d+ x [A-Za-z\s-'()1-4]+)/);
       if (currentSerenSpiritDetected[0].trim() === lastSerenSpiritDetected) {
         return;
       }
@@ -94,13 +94,13 @@ window.setTimeout(function () {
 
   function showItems() {
     $(".itemList").empty();
-    $(".itemList").append(`<li class="list-group-item total">Total Seren Spirits collected: <span style="font-weight:bold">${JSON.parse(localStorage.getItem("serenData")).length}</span></li>`);
+    $(".itemList").append(`<li class="list-group-item total">Total Drops collected: <span style="font-weight:bold">${JSON.parse(localStorage.getItem("serenData")).length}</span></li>`);
     if (localStorage.getItem("serenTotal") === "total") {
-      $(".itemList").append(`<li class="list-group-item header" data-show="history" title="Click to show History">Seren Item Totals</li>`);
+      $(".itemList").append(`<li class="list-group-item header" data-show="history" title="Click to show History">Item Totals</li>`);
       let total = getTotal();
       Object.keys(total).sort().forEach(item => $(".itemList").append(`<li class="list-group-item">${item}: ${total[item]}</li>`))
     } else {
-      $(".itemList").append(`<li class="list-group-item header" data-show="total" title="Click to show Totals">Seren Item History</li>`);
+      $(".itemList").append(`<li class="list-group-item header" data-show="total" title="Click to show Totals">Item History</li>`);
       saveData.slice().reverse().map(item => {
         $(".itemList").append(`<li class="list-group-item" title="${new Date(item.time).toLocaleString()}">${item.item}</li>`)
       })
