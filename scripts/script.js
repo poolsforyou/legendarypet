@@ -64,7 +64,6 @@ window.setTimeout(function () {
     } catch { }
   }
 
-  let lastSerenSpiritDetected;
   //Reading and parsing info from the chatbox.
   function readChatbox() {
     var opts = reader.read() || [];
@@ -73,18 +72,18 @@ window.setTimeout(function () {
     for (a in opts) {
       chat += opts[a].text + " ";
     }
-
+    var splittext = ''
     if (chat.indexOf("Your legendary pet finds:") > -1) {
-      console.log(chat);
-      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] Your legendary pet finds : (\d+ x [A-Za-z\s-'()1-4]+)/);
-      console.log(currentSerenSpiritDetected);
-      if (currentSerenSpiritDetected[0].trim() === lastSerenSpiritDetected) {
-        return;
-      }
-      lastSerenSpiritDetected = currentSerenSpiritDetected[0].trim();
+      splittext = chat.split(":");
+      console.log(splittext);
+      let hour = splittext[0].split("[")[1];
+      let minute = splittext[1];
+      let second = splittext[2].split("]")[0];
+      let drop = splittext[3];
+      let dropstring = hour+":"+minute+":"+second + " " + drop;
       let getItem = {
-        item: currentSerenSpiritDetected[1].trim(),
-        time: new Date()
+        item: dropstring,
+        time: hour+":"+minute+":"+second
       };
       console.log(getItem);
       saveData.push(getItem);
