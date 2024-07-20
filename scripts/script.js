@@ -98,11 +98,11 @@ window.setTimeout(function () {
     $(".itemList").empty();
     $(".itemList").append(`<li class="list-group-item total">Total Drops Logged: <span style="font-weight:bold">${JSON.parse(localStorage.getItem("serenData")).length}</span></li>`);
     if (localStorage.getItem("serenTotal") === "total") {
-      $(".itemList").append(`<li class="list-group-item header" data-show="history" title="Click to show History">Seren Item Totals</li>`);
+      $(".itemList").append(`<li class="list-group-item header" data-show="history" title="Click to show History">Item Totals</li>`);
       let total = getTotal();
       Object.keys(total).sort().forEach(item => $(".itemList").append(`<li class="list-group-item">${item}: ${total[item]}</li>`))
     } else {
-      $(".itemList").append(`<li class="list-group-item header" data-show="total" title="Click to show Totals">Seren Item History</li>`);
+      $(".itemList").append(`<li class="list-group-item header" data-show="total" title="Click to show Totals">Item History</li>`);
       saveData.slice().reverse().map(item => {
         $(".itemList").append(`<li class="list-group-item" title="${new Date(item.time).toLocaleString()}">${item.item}</li>`)
       })
