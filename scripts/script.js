@@ -75,7 +75,7 @@ window.setTimeout(function () {
     }
 
     if (chat.indexOf("Your legendary pet finds:") > -1) {
-      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] Your legendary pet finds: (\d+ x [A-Za-z\s-'()1-4]+)/);
+      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] Your legendary pet finds : (\d+ x [A-Za-z\s-'()1-4]+)/);
       if (currentSerenSpiritDetected[0].trim() === lastSerenSpiritDetected) {
         return;
       }
