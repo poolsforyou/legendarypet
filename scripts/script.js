@@ -1,6 +1,5 @@
 //Enable "Add App" button for Alt1 Browser.
 A1lib.identifyApp("appconfig.json");
-console.log("hello world");
 window.setTimeout(function () {
 
   const appColor = A1lib.mixColor(0, 255, 255);
@@ -72,24 +71,47 @@ window.setTimeout(function () {
     for (a in opts) {
       chat += opts[a].text + " ";
     }
-    var splittext = ''
-    if (chat.indexOf("Your legendary pet finds:") > -1) {
-      splittext = chat.split(":");
+    var splittext = '';
+    var find_text = ['legendary pet', 'coins have been added', 'charming imp', 'Spring cleaner'];
+
+    for (let i = 0; i < find_text.length; i++) {
+    if (chat.includes(find_text[i])) {
+      var chat_index = chat.indexOf(find_text[i]);
+      var output_string = chat[chat_index];
+      console.log(find_text[i]);
+      if (find_text[i] == 'coins have been added') {
+        console.log(find_text[i]);
+        console.log(output_string);
+      } else if (find_text[i] == 'legendary pet') {
+        console.log(find_text[i]);
+        console.log(output_string);
+      } else if (find_text[i] == 'charming imp') {
+        console.log(find_text[i]);
+        console.log(output_string);
+      } else if (find_text[i] == 'Spring cleaner') {
+        console.log(find_text[i]);
+        console.log(output_string);
+      }
+      /*splittext = chat.split(":");
       console.log(splittext);
+      let drop = splittext[splittext.length-1];
+      let quantity = drop.split("x")[0];
+      drop = drop.split("x")[1].trim();
       let hour = splittext[0].split("[")[1];
       let minute = splittext[1];
       let second = splittext[2].split("]")[0];
-      let drop = splittext[3];
       let dropstring = hour+":"+minute+":"+second + " " + drop;
       let getItem = {
-        item: dropstring,
+        quantity: quantity,
+        item: drop,
         time: hour+":"+minute+":"+second
       };
       console.log(getItem);
       saveData.push(getItem);
       localStorage.setItem("serenData", JSON.stringify(saveData));
       checkAnnounce(getItem);
-      showItems();
+      showItems();*/
+    }
     }
   }
 
