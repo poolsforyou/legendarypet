@@ -74,10 +74,10 @@ window.setTimeout(function () {
       chat += opts[a].text + " ";
     }
 
-    if (chat.indexOf("Your legendary pet finds") > -1) {
+    if (chat.indexOf("Your legendary pet finds:") > -1) {
       console.log("hey");
       console.log(chat):
-      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] The Seren spirit gifts you : (\d+ x [A-Za-z\s-'()1-4]+)/);
+      let currentSerenSpiritDetected = chat.match(/\[\d+:\d+:\d+\] Your legendary pet finds: (\d+ x [A-Za-z\s-'()1-4]+)/);
       if (currentSerenSpiritDetected[0].trim() === lastSerenSpiritDetected) {
         return;
       }
