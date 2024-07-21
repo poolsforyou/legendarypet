@@ -80,7 +80,6 @@ window.setTimeout(function () {
     if (chat.includes(find_text[i])) {
       //get the results of the chat box.
       let results = chat.split("[");
-      console.log(results);
       if (find_text[i] == 'coins have been added') {
         console.log(find_text[i]);
         let index = 
@@ -101,7 +100,18 @@ window.setTimeout(function () {
             results.findIndex
             (element => element.includes(find_text[i]));
         let result = results[index];
-        console.log(result);
+        //get charm and quantity.
+        console.log("Charm Drop");
+        splittext = result.split(":");
+        //time string
+        let hour = result.split(":")[0];
+        let minute = result.split(":")[1];
+        let second =  result.split(":")[2].replace("]","").split(" ")[0];
+        let time = hour + ":" + minute + ":" + second;
+        let drop = splittext[splittext.length-1];
+        let quantity = drop.split("x")[0].trim();
+        drop = drop.split("x")[1].trim();
+        console.log(time, quantity, drop);
       } else if (find_text[i] == 'Spring') {
         console.log(find_text[i]);
         let index = 
