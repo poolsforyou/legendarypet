@@ -10,6 +10,8 @@ window.setTimeout(function () {
     colors: [
       A1lib.mixColor(255, 255, 255), //Seren text color
       // A1lib.mixColor(127,169,255), //Test Chat text color
+      A1lib.mixColor(8, 7, 127), 
+      A1lib.mixColor(255, 203, 5), 
     ],
     backwards: true,
   };
@@ -72,25 +74,41 @@ window.setTimeout(function () {
       chat += opts[a].text + " ";
     }
     var splittext = '';
-    var find_text = ['legendary pet', 'coins have been added', 'charming imp', 'Spring cleaner'];
+    var find_text = ['legendary pet', 'coins have been added', 'charming imp', 'cleaner high alched'];
 
     for (let i = 0; i < find_text.length; i++) {
     if (chat.includes(find_text[i])) {
-      var chat_index = chat.indexOf(find_text[i]);
-      var output_string = chat[chat_index];
-      console.log(find_text[i]);
+      //get the results of the chat box.
+      let results = chat.split("[");
+      console.log(results);
       if (find_text[i] == 'coins have been added') {
         console.log(find_text[i]);
-        console.log(output_string);
+        let index = 
+            results.findIndex
+            (element => element.includes(find_text[i]));
+        let result = results[index];
+        console.log(result);
       } else if (find_text[i] == 'legendary pet') {
         console.log(find_text[i]);
-        console.log(output_string);
+        let index = 
+            results.findIndex
+            (element => element.includes(find_text[i]));
+        let result = results[index];
+        console.log(result);
       } else if (find_text[i] == 'charming imp') {
         console.log(find_text[i]);
-        console.log(output_string);
+        let index = 
+            results.findIndex
+            (element => element.includes(find_text[i]));
+        let result = results[index];
+        console.log(result);
       } else if (find_text[i] == 'Spring cleaner') {
         console.log(find_text[i]);
-        console.log(output_string);
+        let index = 
+            results.findIndex
+            (element => element.includes(find_text[i]));
+        let result = results[index];
+        console.log(result);
       }
       /*splittext = chat.split(":");
       console.log(splittext);
