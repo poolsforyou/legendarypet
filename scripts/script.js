@@ -74,7 +74,7 @@ window.setTimeout(function () {
       chat += opts[a].text + " ";
     }
     var splittext = '';
-    var find_text = ['legendary pet', 'coins have been added', 'charming imp', 'cleaner high alched'];
+    var find_text = ['legendary pet', 'coins have been added', 'charming imp', 'Spring'];
 
     for (let i = 0; i < find_text.length; i++) {
     if (chat.includes(find_text[i])) {
@@ -102,7 +102,7 @@ window.setTimeout(function () {
             (element => element.includes(find_text[i]));
         let result = results[index];
         console.log(result);
-      } else if (find_text[i] == 'Spring cleaner') {
+      } else if (find_text[i] == 'Spring') {
         console.log(find_text[i]);
         let index = 
             results.findIndex
