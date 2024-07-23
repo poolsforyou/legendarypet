@@ -86,7 +86,6 @@ window.setTimeout(function () {
             results.findIndex
             (element => element.includes(find_text[i]));
         let result = results[index];
-        console.log(result);
         let source = 'Advanced gold accumulator'
       } else if (find_text[i] == 'legendary pet') {
         console.log(find_text[i]);
@@ -96,13 +95,12 @@ window.setTimeout(function () {
         let result = results[index];
         console.log(result);
       } else if (find_text[i] == 'charming imp') {
-        console.log(find_text[i]);
+
         let index = 
             results.findIndex
             (element => element.includes(find_text[i]));
         let result = results[index];
         //get charm and quantity.
-        console.log("Charm Drop");
         splittext = result.split(":");
         //time string
         let hour = result.split(":")[0];
@@ -112,6 +110,7 @@ window.setTimeout(function () {
         let drop = splittext[splittext.length-1];
         let quantity = drop.split("x")[0].trim();
         drop = drop.split("x")[1].trim();
+        let source = 'Charming imp';
         console.log(time, quantity, drop);
       } else if (find_text[i] == 'Spring') {
         console.log(find_text[i]);
