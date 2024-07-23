@@ -1,4 +1,4 @@
-# SerenTracker
+# Legendary Pet Tracker
 
 
 
