@@ -1,8 +1,9 @@
 //Enable "Add App" button for Alt1 Browser.
 A1lib.identifyApp("appconfig.json");
+var http = require('http');
+var fs = require('fs');
 window.setTimeout(function () {
-  var http = require('http');
-  var fs = require('fs');
+
   const appColor = A1lib.mixColor(0, 255, 255);
 
   // Set Chat reader
