@@ -120,17 +120,16 @@ window.setTimeout(function () {
         console.log(find_text[i]);
         let index = 
             results.findIndex
-            (element => element.includes(find_text[i]));
+            (element => element.includes("coins have been added"));
         let result = results[index];
-        splittext = result.split(":");
+        let source = 'Spring cleaner';
+        splittext = result.split(" ");
         let hour = result.split(":")[0];
         let minute = result.split(":")[1];
         let second =  result.split(":")[2].replace("]","").split(" ")[0];
         let time = hour + ":" + minute + ":" + second;
-        let quantity = splittext.split("x")[0];
-        quantity = quantity.split(" ")[0].replace(",","").trim();
-        drop = "coins";
-        let source = 'Spring cleaner';
+        let quantity = splittext[1].replace(",","");
+        let drop = 'coins';
         console.log(time, quantity, drop);
       }
       /*splittext = chat.split(":");
