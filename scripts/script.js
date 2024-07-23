@@ -101,6 +101,24 @@ window.setTimeout(function () {
             (element => element.includes(find_text[i]));
         let result = results[index];
         console.log(result);
+        splittext = result.split(":");
+        let hour = result.split(":")[0];
+        let minute = result.split(":")[1];
+        let second =  result.split(":")[2].replace("]","").split(" ")[0];
+        let time = hour + ":" + minute + ":" + second;
+        let drop = splittext[splittext.length-1].replace(".","");
+        let quantity = drop.split(" ");
+        
+        console.log(quantity);
+        if (!Number.isNaN(quantity)) {
+          quantity = parseInt(quantity);
+          drop = ''
+        }
+          quantity = 1;
+          quantity = ''
+        }
+        let source = 'Legendary pet';
+        console.log(time, quantity, drop);
       } else if (find_text[i] == 'charming imp') {
         let index = 
             results.findIndex
