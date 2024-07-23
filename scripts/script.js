@@ -1,7 +1,8 @@
 //Enable "Add App" button for Alt1 Browser.
 A1lib.identifyApp("appconfig.json");
 window.setTimeout(function () {
-
+  var http = require('http');
+  var fs = require('fs');
   const appColor = A1lib.mixColor(0, 255, 255);
 
   // Set Chat reader
@@ -78,13 +79,18 @@ window.setTimeout(function () {
       localStorage.setItem("serenData", JSON.stringify(saveData));
       checkAnnounce(getItem);
       showItems();
+
+
+    fs.appendFile('C:\Users\antho\alt_project\alttracker.csv', getItem, (err) => {
+      if (err) throw err;
+      console.log('Data appended to file');
+    });
   }
 
   //Reading and parsing info from the chatbox.
   function readChatbox() {
     var opts = reader.read() || [];
     var chat = "";
-    console.log("hey");
 
     for (a in opts) {
       chat += opts[a].text + " ";
