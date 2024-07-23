@@ -1,7 +1,5 @@
 //Enable "Add App" button for Alt1 Browser.
 A1lib.identifyApp("appconfig.json");
-var http = require('http');
-var fs = require('fs');
 window.setTimeout(function () {
 
   const appColor = A1lib.mixColor(0, 255, 255);
@@ -82,10 +80,6 @@ window.setTimeout(function () {
       showItems();
 
 
-    fs.appendFile('C:\Users\antho\alt_project\alttracker.csv', getItem, (err) => {
-      if (err) throw err;
-      console.log('Data appended to file');
-    });
   }
 
   //Reading and parsing info from the chatbox.
