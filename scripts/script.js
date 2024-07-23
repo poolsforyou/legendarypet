@@ -65,10 +65,26 @@ window.setTimeout(function () {
     } catch { }
   }
 
+
+  function pushdrop(quantity, drop, time, source) {
+      let getItem = {
+        quantity: quantity,
+        item: drop,
+        time: time,
+        source: source
+      };
+      console.log(getItem);
+      saveData.push(getItem);
+      localStorage.setItem("serenData", JSON.stringify(saveData));
+      checkAnnounce(getItem);
+      showItems();
+  }
+
   //Reading and parsing info from the chatbox.
   function readChatbox() {
     var opts = reader.read() || [];
     var chat = "";
+    console.log("hey");
 
     for (a in opts) {
       chat += opts[a].text + " ";
@@ -94,8 +110,8 @@ window.setTimeout(function () {
         let quantity = splittext[1].replace(",","");
         let drop = 'coins';
         //console.log(time, quantity, drop);
+        pushdrop(quantity, drop, time, source);
       } else if (find_text[i] == 'legendary pet') {
-        console.log(find_text[i]);
         let index = 
             results.findIndex
             (element => element.includes(find_text[i]));
@@ -115,6 +131,7 @@ window.setTimeout(function () {
           drop = dropstr.join('').trim()
         }
         let source = 'Legendary pet';
+        pushdrop(quantity, drop, time, source); 
       } else if (find_text[i] == 'charming imp') {
         let index = 
             results.findIndex
@@ -130,6 +147,7 @@ window.setTimeout(function () {
         drop = drop.split("x")[1].trim();
         let source = 'Charming imp';
         //console.log(time, quantity, drop);
+        pushdrop(quantity, drop, time, source); 
       } else if (find_text[i] == 'Spring') {
         let index = 
             results.findIndex
@@ -144,19 +162,10 @@ window.setTimeout(function () {
         let quantity = splittext[1].replace(",","");
         let drop = 'coins';
         //console.log(time, quantity, drop);
+        pushdrop(quantity, drop, time, source);
       }
 
-      let getItem = {
-        quantity: quantity,
-        item: drop,
-        time: hour+":"+minute+":"+second,
-        source: source
-      };
-      console.log(getItem);
-      saveData.push(getItem);
-      localStorage.setItem("serenData", JSON.stringify(saveData));
-      checkAnnounce(getItem);
-      showItems();
+
     }
     }
   }
