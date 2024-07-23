@@ -87,6 +87,15 @@ window.setTimeout(function () {
             (element => element.includes(find_text[i]));
         let result = results[index];
         let source = 'Advanced gold accumulator'
+        console.log(result);
+        splittext = result.split(" ");
+        let hour = result.split(":")[0];
+        let minute = result.split(":")[1];
+        let second =  result.split(":")[2].replace("]","").split(" ")[0];
+        let time = hour + ":" + minute + ":" + second;
+        let quantity = splittext[1].replace(",","");
+        let drop = 'coins';
+        console.log(time, quantity, drop);
       } else if (find_text[i] == 'legendary pet') {
         console.log(find_text[i]);
         let index = 
@@ -107,7 +116,7 @@ window.setTimeout(function () {
         let minute = result.split(":")[1];
         let second =  result.split(":")[2].replace("]","").split(" ")[0];
         let time = hour + ":" + minute + ":" + second;
-        let drop = splittext[splittext.length-1];
+        let drop = splittext[splittext.length-1].replace(".","");
         let quantity = drop.split("x")[0].trim();
         drop = drop.split("x")[1].trim();
         let source = 'Charming imp';
