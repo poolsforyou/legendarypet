@@ -67,6 +67,7 @@ window.setTimeout(function () {
 
   //Reading and parsing info from the chatbox.
   function readChatbox() {
+    console.log("checking");
     var opts = reader.read() || [];
     var chat = "";
 
@@ -80,6 +81,7 @@ window.setTimeout(function () {
     if (chat.includes(find_text[i])) {
       //get the results of the chat box.
       let results = chat.split("[");
+      console.log(results);
       if (find_text[i] == 'coins have been added') {
         let index = 
             results.findIndex
@@ -95,6 +97,7 @@ window.setTimeout(function () {
         let drop = 'coins';
         //console.log(time, quantity, drop);
       } else if (find_text[i] == 'legendary pet') {
+        console.log("entered");
         console.log(find_text[i]);
         let index = 
             results.findIndex
@@ -113,12 +116,13 @@ window.setTimeout(function () {
         if (!Number.isNaN(quantity)) {
           quantity = parseInt(quantity);
           drop = ''
-        }
+        } else {
           quantity = 1;
           quantity = ''
         }
         let source = 'Legendary pet';
         console.log(time, quantity, drop);
+
       } else if (find_text[i] == 'charming imp') {
         let index = 
             results.findIndex
@@ -170,6 +174,7 @@ window.setTimeout(function () {
       showItems();*/
     }
     }
+  }
  
 
   function showItems() {
