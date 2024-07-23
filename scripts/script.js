@@ -87,6 +87,7 @@ window.setTimeout(function () {
             (element => element.includes(find_text[i]));
         let result = results[index];
         console.log(result);
+        let source = 'Advanced gold accumulator'
       } else if (find_text[i] == 'legendary pet') {
         console.log(find_text[i]);
         let index = 
