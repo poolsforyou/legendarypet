@@ -170,7 +170,7 @@ window.setTimeout(function () {
       showItems();*/
     }
     }
-  }
+ 
 
   function showItems() {
     $(".itemList").empty();
