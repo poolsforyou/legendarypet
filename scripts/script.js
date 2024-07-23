@@ -93,7 +93,7 @@ window.setTimeout(function () {
         let time = hour + ":" + minute + ":" + second;
         let quantity = splittext[1].replace(",","");
         let drop = 'coins';
-        console.log(time, quantity, drop);
+        //console.log(time, quantity, drop);
       } else if (find_text[i] == 'legendary pet') {
         console.log(find_text[i]);
         let index = 
@@ -108,7 +108,7 @@ window.setTimeout(function () {
         let time = hour + ":" + minute + ":" + second;
         let drop = splittext[splittext.length-1].replace(".","");
         let quantity = drop.split(" ");
-        
+        console.log("##")
         console.log(quantity);
         if (!Number.isNaN(quantity)) {
           quantity = parseInt(quantity);
@@ -133,9 +133,8 @@ window.setTimeout(function () {
         let quantity = drop.split("x")[0].trim();
         drop = drop.split("x")[1].trim();
         let source = 'Charming imp';
-        console.log(time, quantity, drop);
+        //console.log(time, quantity, drop);
       } else if (find_text[i] == 'Spring') {
-        console.log(find_text[i]);
         let index = 
             results.findIndex
             (element => element.includes("coins have been added"));
@@ -148,7 +147,7 @@ window.setTimeout(function () {
         let time = hour + ":" + minute + ":" + second;
         let quantity = splittext[1].replace(",","");
         let drop = 'coins';
-        console.log(time, quantity, drop);
+        //console.log(time, quantity, drop);
       }
       /*splittext = chat.split(":");
       console.log(splittext);
