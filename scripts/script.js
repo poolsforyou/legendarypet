@@ -81,13 +81,11 @@ window.setTimeout(function () {
       //get the results of the chat box.
       let results = chat.split("[");
       if (find_text[i] == 'coins have been added') {
-        console.log(find_text[i]);
         let index = 
             results.findIndex
             (element => element.includes(find_text[i]));
         let result = results[index];
         let source = 'Advanced gold accumulator'
-        console.log(result);
         splittext = result.split(" ");
         let hour = result.split(":")[0];
         let minute = result.split(":")[1];
@@ -104,14 +102,11 @@ window.setTimeout(function () {
         let result = results[index];
         console.log(result);
       } else if (find_text[i] == 'charming imp') {
-
         let index = 
             results.findIndex
             (element => element.includes(find_text[i]));
         let result = results[index];
-        //get charm and quantity.
         splittext = result.split(":");
-        //time string
         let hour = result.split(":")[0];
         let minute = result.split(":")[1];
         let second =  result.split(":")[2].replace("]","").split(" ")[0];
@@ -127,7 +122,16 @@ window.setTimeout(function () {
             results.findIndex
             (element => element.includes(find_text[i]));
         let result = results[index];
-        console.log(result);
+        splittext = result.split(":");
+        let hour = result.split(":")[0];
+        let minute = result.split(":")[1];
+        let second =  result.split(":")[2].replace("]","").split(" ")[0];
+        let time = hour + ":" + minute + ":" + second;
+        let quantity = splittext.split("x")[0];
+        quantity = quantity.split(" ")[0].replace(",","").trim();
+        drop = "coins";
+        let source = 'Spring cleaner';
+        console.log(time, quantity, drop);
       }
       /*splittext = chat.split(":");
       console.log(splittext);
