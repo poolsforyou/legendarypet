@@ -67,7 +67,6 @@ window.setTimeout(function () {
 
   //Reading and parsing info from the chatbox.
   function readChatbox() {
-    console.log("checking");
     var opts = reader.read() || [];
     var chat = "";
 
@@ -81,7 +80,6 @@ window.setTimeout(function () {
     if (chat.includes(find_text[i])) {
       //get the results of the chat box.
       let results = chat.split("[");
-      console.log(results);
       if (find_text[i] == 'coins have been added') {
         let index = 
             results.findIndex
@@ -97,32 +95,26 @@ window.setTimeout(function () {
         let drop = 'coins';
         //console.log(time, quantity, drop);
       } else if (find_text[i] == 'legendary pet') {
-        console.log("entered");
         console.log(find_text[i]);
         let index = 
             results.findIndex
             (element => element.includes(find_text[i]));
         let result = results[index];
-        console.log(result);
         splittext = result.split(":");
         let hour = result.split(":")[0];
         let minute = result.split(":")[1];
         let second =  result.split(":")[2].replace("]","").split(" ")[0];
         let time = hour + ":" + minute + ":" + second;
         let drop = splittext[splittext.length-1].replace(".","");
-        let quantity = drop.split(" ");
-        console.log("##")
-        console.log(quantity);
-        if (!Number.isNaN(quantity)) {
-          quantity = parseInt(quantity);
-          drop = ''
+        let dropstr = drop.split(" ");
+        var quantity = 1;
+        if (!Number.isNaN(dropstr[dropstr.length-2])) {
+          quantity =  parseInt(drop.split("x")[1].trim());
+          drop =  drop.split("x")[0].trim();
         } else {
-          quantity = 1;
-          quantity = ''
+          drop = dropstr.join('').trim()
         }
         let source = 'Legendary pet';
-        console.log(time, quantity, drop);
-
       } else if (find_text[i] == 'charming imp') {
         let index = 
             results.findIndex
@@ -153,25 +145,18 @@ window.setTimeout(function () {
         let drop = 'coins';
         //console.log(time, quantity, drop);
       }
-      /*splittext = chat.split(":");
-      console.log(splittext);
-      let drop = splittext[splittext.length-1];
-      let quantity = drop.split("x")[0];
-      drop = drop.split("x")[1].trim();
-      let hour = splittext[0].split("[")[1];
-      let minute = splittext[1];
-      let second = splittext[2].split("]")[0];
-      let dropstring = hour+":"+minute+":"+second + " " + drop;
+
       let getItem = {
         quantity: quantity,
         item: drop,
-        time: hour+":"+minute+":"+second
+        time: hour+":"+minute+":"+second,
+        source: source
       };
       console.log(getItem);
       saveData.push(getItem);
       localStorage.setItem("serenData", JSON.stringify(saveData));
       checkAnnounce(getItem);
-      showItems();*/
+      showItems();
     }
     }
   }
